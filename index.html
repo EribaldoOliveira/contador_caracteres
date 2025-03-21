@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Caracteres</title>
+    <style>
+        @keyframes neon-glow {
+            0% { text-shadow: 0 0 5px #fff, 0 0 10px #00ffff, 0 0 15px #00ffff; }
+            50% { text-shadow: 0 0 10px #fff, 0 0 20px #00ffff, 0 0 25px #00ffff; }
+            100% { text-shadow: 0 0 5px #fff, 0 0 10px #00ffff, 0 0 15px #00ffff; }
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle, #0f0c29, #302b63, #24243e);
+            margin: 0;
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+        }
+        h2 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            animation: neon-glow 1.5s infinite alternate;
+            color: #00ffff;
+            font-weight: bold;
+        }
+        
+        .date-time {
+        font-size: 18px;
+        color: #00ffff;
+        margin-bottom: 20px;
+        text-transform: capitalize; /* Transforma a primeira letra de cada palavra em maiúscula */
+       }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid rgba(0, 255, 255, 0.5);
+            border-radius: 8px;
+            resize: none;
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            outline: none;
+            transition: background 0.3s, box-shadow 0.3s, border 0.3s;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        textarea:focus {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.9);
+            border: 2px solid rgba(0, 255, 255, 0.8);
+        }
+        textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .counter {
+            font-size: 22px;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px 18px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: #00ffff;
+            animation: neon-glow 1.5s infinite alternate;
+            border: 2px solid rgba(0, 255, 255, 0.5);
+        }
+        .counter:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 1);
+            border: 2px solid rgba(0, 255, 255, 1);
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            textarea {
+                height: 100px;
+            }
+        }
+        .explanation {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #fff;
+            max-width: 600px;
+            text-align: justify;
+            height: 150px;
+            overflow-y: auto; /* Permite rolagem */
+            padding-right: 15px; /* Para evitar que o texto se sobreponha à barra de rolagem */
+            position: relative;
+        }
+        .explanation h5 {
+            font-size: 20px;
+            color: #00ffff;
+            font-weight: bold;
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Exibe data e hora atual -->
+        <div class="date-time" id="date-time"></div>
+
+        <h2>Contador de Caracteres</h2>
+        <textarea id="text" placeholder="Digite algo..."></textarea>
+        <p class="counter">Caracteres: <span id="count">0</span></p>
+
+        <!-- Texto Explicativo -->
+        <div class="explanation">
+            <h5>Como Utilizar o Contador de Caracteres</h5>
+            <p>O contador de caracteres é uma ferramenta simples e eficaz que ajuda os usuários a monitorar o número de caracteres digitados em um campo de texto. Este tipo de contador é especialmente útil quando você precisa se atentar a um limite de caracteres para preencher formulários, enviar mensagens ou mesmo escrever textos para postagens em redes sociais, onde a quantidade de caracteres é restrita. A seguir, explicamos como usar a ferramenta de maneira prática:</p>
+            
+            <p>1. **Digite seu texto**: Comece a digitar seu texto na área de texto logo acima deste parágrafo. O contador será atualizado automaticamente conforme você escreve, exibindo o número de caracteres digitados.</p>
+            <p>2. **Observação do contador**: O número de caracteres digitados será exibido em tempo real ao lado do campo de texto, permitindo que você acompanhe seu progresso à medida que digita. O contador também será útil para evitar ultrapassar limites de caracteres ao escrever descrições, resumos ou postagens.</p>
+            <p>3. **Limitação de caracteres**: Alguns aplicativos ou plataformas impõem limites de caracteres em textos. O contador de caracteres pode ser usado para garantir que você esteja dentro desse limite. Por exemplo, se você estiver escrevendo um tweet no Twitter, pode ser útil saber quantos caracteres restam antes de atingir o limite.</p>
+            <p>4. **Atenção ao formato**: Este contador de caracteres é baseado no número total de caracteres digitados, incluindo espaços e pontuações. Isso significa que, ao contar os caracteres, ele considera até mesmo os espaços entre palavras como um caractere.</p>
+            <p>5. **Edição e recontagem**: Caso você faça edições no texto, como apagar ou adicionar palavras, o contador será ajustado automaticamente, refletindo o número correto de caracteres. Isso permite que você controle facilmente a quantidade de texto sem perder tempo com cálculos manuais.</p>
+            
+            <p>Em resumo, o contador de caracteres é uma ferramenta prática e fácil de usar, que pode ser aplicada em diversas situações do dia a dia, seja em mensagens pessoais ou ao escrever para plataformas que impõem limites de caracteres. Aproveite esta ferramenta e escreva de maneira mais eficiente e precisa!</p>
+        </div>
+    </div>
+
+    <script>
+        const textArea = document.getElementById('text');
+        const countSpan = document.getElementById('count');
+
+        textArea.addEventListener('input', () => {
+            countSpan.textContent = textArea.value.length;
+        });
+
+// Função para exibir dia da semana, data e hora atual
+function updateDateTime() {
+    const date = new Date();
+    const day = String(date.getDate()).padStart(2, '0');  // Adiciona 0 à esquerda para garantir dois dígitos
+    const month = String(date.getMonth() + 1).padStart(2, '0');  // Meses começam em 0, então adicionamos 1
+    const year = String(date.getFullYear()).slice(2);  // Pega os dois últimos dígitos do ano
+
+    const hour = String(date.getHours()).padStart(2, '0');
+    const minute = String(date.getMinutes()).padStart(2, '0');
+    const second = String(date.getSeconds()).padStart(2, '0');
+
+    const weekday = date.toLocaleString('pt-BR', { weekday: 'long' });  // Dia da semana completo (Ex: "segunda-feira")
+
+    const formattedDate = `${day}/${month}/${year}`;  // Formato dd/mm/aa
+    const formattedTime = `${hour}:${minute}:${second}`;  // Formato HH:MM:SS
+
+    // Exibindo o dia da semana no topo e a data e hora abaixo
+    document.getElementById('date-time').innerHTML = `${weekday}<br>${formattedDate} - ${formattedTime} Horas`;
+}
+
+// Atualizar dia da semana, data, hora e a cada segundo
+updateDateTime();
+setInterval(updateDateTime, 1000);
+
+
+
+    </script>
+    
+</body>
+</html>
